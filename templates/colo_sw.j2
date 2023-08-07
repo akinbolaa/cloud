@@ -52,15 +52,14 @@ interface ethernet{{ vpc_data.vpc_int_id }}
  channel-group {{ vpc_data.vpc_portchannel_id }} mode active
 !
 {% endfor %}
-
-{% for vpc_link, vpc_data in vpc_interfaces.items() %}
-interface port-channel{{ vpc_data.vpc_portchannel_id}}
+{% for vpc_no, vpcid in vpc_id.items() %}
+interface port-channel{{ vpcid.po_id}}
  no shutdown
  switchport mode trunk
- {% if vpc_data.vpc_portchannel_id == "1" -%} 
+{% if vpcid.po_id == 1 -%} 
  vpc peer-link
  {% else -%} 
- vpc {{vpc_data.vpc_portchannel_id}}
+ vpc {{vpcid.po_id}}
  {% endif %}
 {% endfor %}
 !

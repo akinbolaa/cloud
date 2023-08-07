@@ -14,10 +14,24 @@ address-family ipv4
 {% endfor %}
 !
 {# port-channel config for LACP between vp01/02 #}
-interface port-channel1
-description port-channel between vp01-vp02
- no shut
+{#interface port-channel1 #}
+{#description port-channel between vp01-vp02 #]
+{# no shut #}
 !
+{# create port-channel interfaces #}
+{% for po_int_name, po_int_value in po_int.items() %}
+{% if po_int_value.id == 1 -%}
+interface Po{{ po_int_value.id}}
+{%- elif po_int_value.id == 2 -%}
+interface Po{{ po_int_value.id}}
+{% endif %}
+
+no shut
+description {{ po_int_value.description }}
+!
+{% endfor %}
+
+
 {# create l3 interfaces #}
 {% for l3_int_name, l3_int_value in l3_interfaces.items() %}
 interface {{ l3_int_name }}

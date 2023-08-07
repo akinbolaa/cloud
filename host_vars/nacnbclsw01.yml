@@ -86,6 +86,13 @@ vpc_interfaces:
   Ethernet8:
     vpc_int_id: 1/14
     vpc_portchannel_id: 11
+vpc_id:
+  vpc_1:
+    po_id: 1
+  vpc_10:
+    po_id: 10
+  vpc_11:
+    po_id: 11  
 l3_interfaces:
   ethernet1/25:
     description: " l3 connection to NACNBLVP03"
