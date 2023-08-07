@@ -3,7 +3,7 @@ local_bgp_asn: 64919
 colo_vp03_04_asn: 64854
 colo_vp_01_02_asn: 65188
 local_vpc_peer_ipv4: 10.137.64.253
-remote_vpc_peer_ipv4: 10.138.64.254
+remote_vpc_peer_ipv4: 10.137.64.254
 loopback0: 10.137.68.25/32
 loopback_interfaces:
   loop675:
