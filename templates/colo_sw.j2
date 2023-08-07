@@ -52,14 +52,17 @@ interface ethernet{{ vpc_data.vpc_int_id }}
  channel-group {{ vpc_data.vpc_portchannel_id }} mode active
 !
 {% endfor %}
+
 {% for vpc_link, vpc_data in vpc_interfaces.items() %}
 interface port-channel{{ vpc_data.vpc_portchannel_id}}
  no shutdown
  switchport mode trunk
- {% if vpc_data.vpc_portchannel_id == "1"} vpc peer-link
- {% if vpc_data.vpc_portchannel_id != "1"} vpc {{vpc_data.vpc_portchannel_id}}
+ {% if vpc_data.vpc_portchannel_id == "1" -%} 
+ vpc peer-link
+ {% else -%} 
  vpc {{vpc_data.vpc_portchannel_id}}
- {% endfor %}
+ {% endif %}
+{% endfor %}
 !
 {# interface for vpc peer keepalive
 interface ethernet1/3
@@ -71,6 +74,7 @@ ip add {{ local_vpc_peer_ipv4 }}/30
 vpc domain 100
  peer-keepalive destination {{ remote_vpc_peer_ipv4 }} source {{ local_vpc_peer_ipv4 }} vrf vpc_keepalive
 !
+
 {# enable l3 interfaces used for connectioning to other devices #}
 {% for l3_int_value, l3_int_data in l3_interfaces.items() %}
 interface {{ l3_int_value }}
@@ -78,6 +82,7 @@ interface {{ l3_int_value }}
   no switchport
 !
 {% endfor %}
+
 {# create l3 sub-interfaces #}
 {% for l3_sub_int_value, l3_sub_int_data in l3_sub_interfaces.items() %}
 interface {{ l3_sub_int_value }}
@@ -88,6 +93,7 @@ interface {{ l3_sub_int_value }}
   ip address {{ l3_sub_int_data.l3_sub_int_ipv4 }}
 !
 {% endfor %} 
+
 {# generate route-map for redistribution#}
 route-map REDIS_CONNECTED-VRF-AZCD21-OUT permit 10
 {% for redis_name, int_name in redis_connected.items() %}
