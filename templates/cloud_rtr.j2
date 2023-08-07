@@ -26,15 +26,22 @@ interface {{ loop_name }}
 {% endfor %}
 !
 {# port-channel config for LACP to Azure #}
-interface port-channel1
-description port-channel to Azure
- no shut
+{# interface port-channel1 #}
+{# description port-channel to Azure #}
+{# no shut #}
 !
+{% for intf in int_port_channel %}
+interface {{ intf }}
+no shut 
+!
+{% endfor %}
+
+
 {% for intf in layer_interfaces %}
 interface {{ intf }}
   {{ layer_interfaces[intf].description }}
   {{ layer_interfaces[intf].status }}
-{% if layer_interfaces[intf].lacp == "present" %} channel-group 1
+{% if layer_interfaces[intf].lacp == "present" %} channel-group {{layer_interfaces[intf].lacp_id}}
 {% endif %}
 !
 {% endfor %}
