@@ -1,8 +1,8 @@
 ---
+hostname: NACNBCLSVP03
 local_bgp_asn: 64854
-hostname: dc11_vp04
 azure_bgp_asn: 10000
-colo_loopback0: 10.137.68.30
+colo_loopback0: 10.137.68.29
 #configure loopback for each vrf
 loopback_interfaces:
   loopback677:
@@ -65,7 +65,7 @@ layer_interfaces:
     description: "description connection to colo switch NACBCLSW02 E1/25"
     lacp: present
     lacp_id: 2
-  sub_interfaces:
+sub_interfaces:
   Po1.677:
     description: "<insert description here>"
     vrf: AZCP21
@@ -82,48 +82,48 @@ layer_interfaces:
     dot1q: 675
     ipv4_add: "<add azure ip address>"
   Po2.677:
-    description: "<connection to NACNBCLSW02 E1/45 VRF AZCP21"
+    description: "connection to NACNBCLSW01 Po2 VRF AZCP21"
     vrf: AZCP21
     dot1q: 677
     ipv4_add: 10.137.64.58
   Po2.676:
-    description: "<connection to NACNBCLSW02 E1/45 VRF AZCQ21"
+    description: "connection to NACNBCLSW01 Po2 VRF AZCQ21"
     vrf: AZCQ21
     dot1q: 676
     ipv4_add: 10.137.64.186
   Po2.675:
-    description: "<connection to NACNBCLSW02 E1/45 VRF AZCQ21"
+    description: "connection to NACNBCLSW01 Po2 VRF AZCD21"
     vrf: AZCD21
     dot1q: 675
     ipv4_add: 10.137.64.122
 router_bgp:
-  azure_peer1:
+  azcp21_peer1:
     remote_bgp_ipv4_address: 1.2.3.1
     description: "BGP to Azure Expressroute VRF AZCP21"
-    remote_bgp_asn: "<AZURE BGP ASN>"
+    remote_bgp_asn: 10000
     vrf: AZCP21
-  azure_peer2:
-    remote_bgp_ipv4_address: 1.2.3.4
-    description: "BGP to Azure Expressroute VRF AZCD21"
-    remote_bgp_asn: "<AZURE BGP ASN"
-    vrf: AZCD21
-  azure_peer3:
+  acp21_peer2:
+    remote_bgp_ipv4_address: 10.137.64.57
+    description: "BGP to Colo Switch NACNBCLSW01 VRF AZCP21"
+    remote_bgp_asn: 64919
+    vrf: AZCP21
+  azcq21_peer1:
     remote_bgp_ipv4_address: 1.2.3.4
     description: "BGP to Azure Expressroute VRF AZCQ21"
-    remote_bgp_asn: "<AZURE BGP ASN"
+    remote_bgp_asn: 10000
     vrf: AZCQ21
-  sw02_peer1:
-    remote_bgp_ipv4_address: 10.137.64.57
-    description: "BGP to Colo Switch NACNBCLSW02 VRF AZCP21"
+  azcq21_peer2:
+    remote_bgp_ipv4_address: 10.137.64.185
+    description: "BGP to Colo Switch NACNBCLSW01 VRF AZCQ21"
     remote_bgp_asn: 64919
-    vrf: AZCP21
-  sw02_peer2:
+    vrf: AZCQ21
+  azdt21_peer1:
+    remote_bgp_ipv4_address: 1.2.3.7
+    description: "BGP to Azure Expressroute VRF AZCD21"
+    remote_bgp_asn: 10000
+    vrf: AZCD21
+  azdt21_peer2:
     remote_bgp_ipv4_address: 10.137.64.121
-    description: "BGP to Colo Switch NACNBCLSW02 VRF AZCD21"
+    description: "BGP to Colo Switch NACNBCLSW01 VRF AZCD21"
     remote_bgp_asn: 64919
     vrf: AZCD21
-  sw02_peer3:
-    remote_bgp_ipv4_address: 10.137.64.185
-    description: "BGP to Colo Switch NACNBCLSW02 VRF AZCQ21"
-    remote_bgp_asn: 64919
-    vrf: AZCQ21
