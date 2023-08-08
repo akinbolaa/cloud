@@ -31,35 +31,35 @@ loopback_interfaces:
     loop_description: " vrf AZCP21-OUT loopback for testing"
     loop_vrf: AZCP21-OUT 
 vlan_interfaces:
-  vlan_675:
+  po1_675:
     vlan_id: 675
     vlan_ipv4: 10.137.64.126/30
-    vlan_description: "ibgp vlan for vrf AZCD21"
+    vlan_description: "ibgp for vrf AZCD21"
     vrf: AZCD21
-  vlan_676:
+  po1_676:
     vlan_id: 676
     vlan_ipv4: 10.137.64.190/30
-    vlan_description: "ibgp vlan for vrf AZCQ21"
+    vlan_description: "ibgp for vrf AZCQ21"
     vrf: AZCQ21
-  vlan_677:
+  po1_677:
     vlan_id: 677
     vlan_ipv4: 10.137.64.62/30
-    vlan_description: "ibgp vlan for vrf AZCP21"
+    vlan_description: "ibgp for vrf AZCP21"
     vrf: AZCP21
-  vlan_1675:
+  po1_1675:
     vlan_id: 1675
     vlan_ipv4: 10.137.64.242/30
-    vlan_description: "ibgp vlan for vrf AZCD21-OUT"
+    vlan_description: "ibgp for vrf AZCD21-OUT"
     vrf: AZCD21-OUT 
-  vlan_1676:
+  po1_1676:
     vlan_id: 1676
     vlan_ipv4: 10.137.64.246/30
-    vlan_description: "ibgp vlan for vrf AZCQ21-OUT"
+    vlan_description: "ibgp for vrf AZCQ21-OUT"
     vrf: AZCQ21-OUT
-  vlan_1677:
+  po1_1677:
     vlan_id: 1677
     vlan_ipv4: 10.137.64.250/30
-    vlan_description: "ibgp vlan for vrf AZCP21-OUT"
+    vlan_description: "ibgp for vrf AZCP21-OUT"
     vrf: AZCP21-OUT
 vpc_interfaces:
   Ethernet1:

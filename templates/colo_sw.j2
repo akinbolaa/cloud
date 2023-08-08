@@ -17,8 +17,8 @@ vrf context vpc_keepalive
 {# vrf creation #}
 {% for vrf_name, vrf_data in vlan_interfaces.items()  %}
 {# vlan creation for ibgp for all vrf #}
-vlan {{ vrf_data.vlan_id }}
-  name {{ vrf_data.vrf }}
+{#vlan {{ vrf_data.vlan_id }} #}
+{#  name {{ vrf_data.vrf }} #}
   !
 {# create vrf contexts #}
 vrf context {{ vrf_data.vrf }}
@@ -26,10 +26,11 @@ vrf context {{ vrf_data.vrf }}
   rd {{ local_bgp_asn }}:{{ vrf_data.vlan_id }}
   address-family ipv4 unicast
   !
-{# ceeate layer 3 vlan interfaces #}
-interface vlan {{ vrf_data.vlan_id }}
+{# create layer 3 po1 interfaces #}
+interface po1.{{ vrf_data.vlan_id }}
   description {{ vrf_data.vlan_description }}
   no shutdown
+  encapsulation dot1q {{ vrf_data.vlan_id }}
   vrf member {{ vrf_data.vrf }}
   ip address {{vrf_data.vlan_ipv4 }}
   !
