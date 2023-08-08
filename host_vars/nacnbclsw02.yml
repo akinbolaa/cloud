@@ -68,6 +68,31 @@ vpc_interfaces:
   Ethernet2:
     vpc_int_id: 1/54
     vpc_portchannel_id: 1
+  Ethernet3:
+    vpc_int_id: 1/25
+    vpc_portchannel_id: 10
+  Ethernet4:
+    vpc_int_id: 1/26
+    vpc_portchannel_id: 10
+  Ethernet5:
+    vpc_int_id: 1/27
+    vpc_portchannel_id: 10
+  Ethernet6:
+    vpc_int_id: 1/28
+    vpc_portchannel_id: 10
+  Ethernet7:
+    vpc_int_id: 1/13
+    vpc_portchannel_id: 11
+  Ethernet8:
+    vpc_int_id: 1/14
+    vpc_portchannel_id: 11
+vpc_id:
+  vpc_1:
+    po_id: "1"
+  vpc_10:
+    po_id: "10"
+  vpc_11:
+    po_id: "11"  
 l3_interfaces:
   ethernet1/25:
     description: " l3 connection to NACNBLVP04"

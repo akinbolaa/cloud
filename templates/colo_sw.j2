@@ -56,9 +56,10 @@ interface ethernet{{ vpc_data.vpc_int_id }}
 interface port-channel{{ vpcid.po_id}}
  no shutdown
  switchport mode trunk
-{% if vpcid.po_id == 1 -%} 
+{% if vpcid.po_id == "1" -%} 
  vpc peer-link
- {% else -%} 
+ !
+{%- else -%} 
  vpc {{vpcid.po_id}}
  {% endif %}
 {% endfor %}
