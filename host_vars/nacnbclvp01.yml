@@ -33,10 +33,10 @@
 #  define l3 interface 
   l3_interfaces:
     Te0/0/4:
-      description: "connection to nacnbclvp02 Te0/0/0"
+      description: "connection to nacnbclvp02 Te0/0/4"
       lacp: present
     Te0/0/5:
-      description: "connection to nacnbclvp02 Te0/0/1"
+      description: "connection to nacnbclvp02 Te0/0/5"
       lacp: present
     Te0/0/0:
       description: "connection to nacnbclsw01 E1/13"

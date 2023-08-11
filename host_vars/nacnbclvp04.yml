@@ -5,18 +5,10 @@ azure_bgp_asn: 10000
 colo_loopback0: 10.137.68.29
 #configure loopback for each vrf
 loopback_interfaces:
-  loopback677:
-    loop_ipv4: 10.137.68.22
-    loop_vrf: AZCP21
-    description: "AZCP21 loopback interface"
-  loopback676:
-    loop_ipv4: 10.137.68.23
-    loop_vrf: AZCQ21
-    description: "AZCP21 loopback interface"
   loopback675:
     loop_ipv4: 10.137.68.21
-    loop_vrf: AZCD21
-    description: "AZCP21 loopback interface"
+    loop_vrf: AVIATRIX-UNDERLAY
+    description: "AVIATRIX-UNDERLAY loopback interface"
 # portchannel setup
 int_port_channel:
   Po1:
@@ -71,29 +63,9 @@ sub_interfaces:
     vrf: AZCP21
     dot1q: 677
     ipv4_add: "<add azure ip address>"
-  Po1.676:
-    description: "<insert description here>"
-    vrf: AZCQ21
-    dot1q: 676
-    ipv4_add: "<add azure ip address>"
-  Po1.675:
-    description: "<insert description here>"
-    vrf: AZCD21
-    dot1q: 675
-    ipv4_add: "<add azure ip address>"
-  Po2.677:
-    description: "connection to NACNBCLSW01 Po2 VRF AZCP21"
-    vrf: AZCP21
-    dot1q: 677
-    ipv4_add: 10.137.64.58
-  Po2.676:
-    description: "connection to NACNBCLSW01 Po2 VRF AZCQ21"
-    vrf: AZCQ21
-    dot1q: 676
-    ipv4_add: 10.137.64.186
   Po2.675:
     description: "connection to NACNBCLSW01 Po2 VRF AZCD21"
-    vrf: AZCD21
+    vrf: AVIATRIX-UNDERLAY
     dot1q: 675
     ipv4_add: 10.137.64.122
 router_bgp:
@@ -101,29 +73,9 @@ router_bgp:
     remote_bgp_ipv4_address: 1.2.3.1
     description: "BGP to Azure Expressroute VRF AZCP21"
     remote_bgp_asn: 10000
-    vrf: AZCP21
-  acp21_peer2:
-    remote_bgp_ipv4_address: 10.137.64.57
-    description: "BGP to Colo Switch NACNBCLSW01 VRF AZCP21"
-    remote_bgp_asn: 64919
-    vrf: AZCP21
-  azcq21_peer1:
-    remote_bgp_ipv4_address: 1.2.3.4
-    description: "BGP to Azure Expressroute VRF AZCQ21"
-    remote_bgp_asn: 10000
-    vrf: AZCQ21
-  azcq21_peer2:
-    remote_bgp_ipv4_address: 10.137.64.185
-    description: "BGP to Colo Switch NACNBCLSW01 VRF AZCQ21"
-    remote_bgp_asn: 64919
-    vrf: AZCQ21
-  azdt21_peer1:
-    remote_bgp_ipv4_address: 1.2.3.7
-    description: "BGP to Azure Expressroute VRF AZCD21"
-    remote_bgp_asn: 10000
-    vrf: AZCD21
-  azdt21_peer2:
+    vrf: AVIATRIX-UNDERLAY
+  azcd21_peer2:
     remote_bgp_ipv4_address: 10.137.64.121
     description: "BGP to Colo Switch NACNBCLSW01 VRF AZCD21"
     remote_bgp_asn: 64919
-    vrf: AZCD21
+    vrf: AVIATRIX-UNDERLAY

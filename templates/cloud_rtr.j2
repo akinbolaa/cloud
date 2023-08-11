@@ -1,15 +1,17 @@
 ---
+{#
 vrf definition AZCP21
  rd {{ local_bgp_asn }}:677
  address-family ipv4
  exit-address-family
-
+#}
+{#
 vrf definition AZCQ21
  rd {{ local_bgp_asn }}:676
  address-family ipv4
  exit-address-family
-
-vrf definition AZCD21
+#}
+vrf definition AVIATRIX-UNDERLAY
  rd {{ local_bgp_asn }}:675
  address-family ipv4
  exit-address-family
@@ -41,7 +43,7 @@ no shut
 interface {{ intf }}
   {{ layer_interfaces[intf].description }}
   {{ layer_interfaces[intf].status }}
-{% if layer_interfaces[intf].lacp == "present" %} channel-group {{layer_interfaces[intf].lacp_id}}
+{% if layer_interfaces[intf].lacp == "present" %} channel-group {{layer_interfaces[intf].lacp_id}} mode active
 {% endif %}
 !
 {% endfor %}
@@ -58,6 +60,7 @@ interface {{ intf }}
 router bgp {{ local_bgp_asn }}
 bgp router-id {{ colo_loopback0 }}
 no bgp default ipv4-unicast
+{#
 address-family ipv4 vrf AZCP21
 {% for loop_name, loop_intf in loopback_interfaces.items() %}
 {% if loop_intf.loop_vrf == "AZCP21" %}
@@ -70,7 +73,9 @@ address-family ipv4 vrf AZCP21
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} activate
 {% endif %}
 {% endfor %}
+#}
 !
+{#
 address-family ipv4 vrf AZCQ21
 {% for loop_name, loop_intf in loopback_interfaces.items() %}
 {% if loop_intf.loop_vrf == "AZCQ21" %}
@@ -83,15 +88,16 @@ address-family ipv4 vrf AZCQ21
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} activate
 {% endif %}
 {% endfor %}
+#}
 !
-address-family ipv4 vrf AZCD21
+address-family ipv4 vrf AVIATRIX-UNDERLAY
 {% for loop_name, loop_intf in loopback_interfaces.items() %}
-{% if loop_intf.loop_vrf == "AZCD21" %}
+{% if loop_intf.loop_vrf == "AVIATRIX-UNDERLAY" %}
   network {{ loop_intf.loop_ipv4 }} mask 255.255.255.255
 {% endif %}
 {% endfor %}
 {% for bgp_name, bgp_data in router_bgp.items() %}
-{% if bgp_data.vrf == "AZCD21" %}
+{% if bgp_data.vrf == "AVIATRIX-UNDERLAY" %}
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} remote-as {{ bgp_data.remote_bgp_asn }}
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} activate
 {% endif %}
