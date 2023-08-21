@@ -40,7 +40,7 @@ vlan_interfaces:
     vrf: AZCP21
   Po1_1675:
     vlan_id: 1675
-    vlan_ipv4: 10.137.80.110/30
+    vlan_ipv4: 10.137.80.109/30
     vlan_description: "ibgp vlan for vrf AVIATRIX-UNDERLAY"
     vrf: AVIATRIX-UNDERLAY
 vpc_interfaces:
@@ -178,26 +178,26 @@ l3_bgp_neighbors:
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.242
     bgp_vrf: AVIATRIX-UNDERLAY
-  vp03_peer1:
-    bgp_type: ebgp
-    remote_asn: 65189
-    remote_bgp_peer_ipv4: 10.137.80.46 
-    bgp_vrf: AVIATRIX-UNDERLAY
   vp03_peer2: 
     bgp_type: ebgp
     remote_asn: 65189
     remote_bgp_peer_ipv4: 10.137.80.110
-    bgp_vrf: AZCD21-OUT
-  vp03_peer3:
-    bgp_type: ebgp
-    remote_asn: 65189
-    remote_bgp_peer_ipv4: 10.137.80.174
-    bgp_vrf: AZCQ21-OUT
+    bgp_vrf: AVIATRIX-UNDERLAY
   vp01_peer2:
     bgp_type: ebgp
-    remote_asn: 65188
+    remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.73
-    bgp_vrf: AZCD21 
+    bgp_vrf: AZCD21
+  vp01_peer1:
+    bgp_type: ebgp
+    remote_asn: 65206
+    remote_bgp_peer_ipv4: 10.137.80.9
+    bgp_vrf: AZCP21 
+  vp01_peer3:
+    bgp_type: ebgp
+    remote_asn: 65206
+    remote_bgp_peer_ipv4: 10.137.80.137
+    bgp_vrf: AZCQ21
   aviprod_peer1:
     bgp_type: ebgp
     remote_asn: 64523
