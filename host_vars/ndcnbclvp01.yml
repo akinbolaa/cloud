@@ -69,17 +69,17 @@
       dot1q: 675
       ipv4_add: 10.137.80.73
       vrf : AZCD21
-      description: " L3 connnection to ndcnbclsw01 E1/48.675"
+      description: " L3 connnection to ndcnbclsw01 Po2.675"
     Po2.676:
       dot1q: 676
       ipv4_add: 10.137.80.137
       vrf : AZCQ21
-      description: " L3 connnection to ndcnbclsw01 E1/48.676"
-    Po22.677:
+      description: " L3 connnection to ndcnbclsw01 Po2.676"
+    Po2.677:
       dot1q: 677
       ipv4_add: 10.137.80.9
       vrf : AZCP21
-      description: " L3 connnection to ndcnbclsw01 E1/48.677"
+      description: " L3 connnection to ndcnbclsw01 Po2.677"
     Po1.675:
       dot1q: 675
       ipv4_add: 10.137.80.89
