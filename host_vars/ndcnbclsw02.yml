@@ -161,22 +161,22 @@ l3_bgp_neighbors:
   sw01_peer1:
     bgp_type: ibgp
     remote_asn: 65190
-    remote_bgp_peer_ipv4: 10.137.82.61
+    remote_bgp_peer_ipv4: 10.137.80.61
     bgp_vrf: AZCP21  
   sw01_peer2:
     bgp_type: ibgp
     remote_asn: 65190
-    remote_bgp_peer_ipv4: 10.137.82.189
+    remote_bgp_peer_ipv4: 10.137.80.189
     bgp_vrf: AZCQ21
   sw01_peer3:
     bgp_type: ibgp
     remote_asn: 65190
-    remote_bgp_peer_ipv4: 10.137.82.125
+    remote_bgp_peer_ipv4: 10.137.80.125
     bgp_vrf: AZCD21
   sw01_peer6:
     bgp_type: ibgp
     remote_asn: 65190
-    remote_bgp_peer_ipv4: 10.137.82.241
+    remote_bgp_peer_ipv4: 10.137.80.241
     bgp_vrf: AVIATRIX-UNDERLAY
   vp04_peer2:
     bgp_type: ebgp
