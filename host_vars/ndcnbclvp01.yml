@@ -22,24 +22,32 @@
     vrf_azcp21-fvrf:
       vrf_name: AZCP21-FVRF
       vrf_dot1q: 1677
+# define port-channel interfaces
+  po_int:
+    po_1:
+      id: 1
+      description: "port-channel to vp02"
+    po_2:
+      id: 2  
+      description: "port-channel to sw01"
 #  define l3 interface 
   l3_interfaces:
+    Te0/0/4:
+      description: "connection to nacnbclvp02 Te0/0/4"
+      lacp: present
+    Te0/0/5:
+      description: "connection to nacnbclvp02 Te0/0/5"
+      lacp: present
     Te0/0/0:
-      description: "connection to nacnbclvp02 Te0/0/0"
+      description: "connection to nacnbclsw01 E1/13"
       lacp: present
     Te0/0/1:
-      description: "connection to nacnbclvp02 Te0/0/1"
+      description: "connection to nacnbclsw01 E1/14"  
       lacp: present
     Te0/0/2:
-      description: "connection to nacnbclsw01 E1/48"
-      lacp: absent
-    Te0/0/3:
-      description: "connection to nacnbclsw02 E1/48"  
-      lacp: absent
-    Te0/0/11:
       description: "connection to ntdznbclvp01 Te0/0/11"
       lacp: absent
-    Te0/0/10:
+    Te0/0/3:
       description: "connection to ncdzbclvp01 Te0/0/10"
       lacp: absent
 # define loopback interface 
@@ -57,17 +65,17 @@
       loop_ipv4: 10.137.84.7
       loop_description: "vrf azcp21 loopback interface"
   layer3_sub_int:
-    Te0/0/2.675:
+    Po2.675:
       dot1q: 675
       ipv4_add: 10.137.80.73
       vrf : AZCD21
       description: " L3 connnection to ndcnbclsw01 E1/48.675"
-    Te0/0/2.676:
+    Po2.676:
       dot1q: 676
       ipv4_add: 10.137.80.137
       vrf : AZCQ21
       description: " L3 connnection to ndcnbclsw01 E1/48.676"
-    Te0/0/2.677:
+    Po22.677:
       dot1q: 677
       ipv4_add: 10.137.80.9
       vrf : AZCP21
@@ -87,21 +95,6 @@
       ipv4_add: 10.137.80.25
       vrf : AZCP21
       description: " L3 connnection to ndcnbclvp02 Po1.675"
-    Te0/0/3.675:
-      dot1q: 675
-      ipv4_add: 10.137.80.77
-      vrf : AZCD21
-      description: " L3 connnection to ndcnbclsw02 E1/48.676"
-    Te0/0/3.676:
-      dot1q: 676
-      ipv4_add: 10.137.80.141
-      vrf : AZCQ21
-      description: " L3 connnection to ndcnbclsw02 E1/48.676"
-    Te0/0/3.677:
-      dot1q: 677
-      ipv4_add: 10.137.80.13
-      vrf : AZCP21
-      description: " L3 connnection to ndcnbclsw02 E1/48.676"
     Te0/0/11.675:
       dot1q: 675
       ipv4_add: 10.137.80.209
@@ -189,21 +182,6 @@
     sw01peer3:
       remote_asn: 65190
       remote_ipv4: 10.137.80.10
-      bgp_type: ebgp
-      bgp_vrf: AZCP21
-    sw02peer1:
-      remote_asn: 65190
-      remote_ipv4: 10.137.80.78
-      bgp_type: ebgp
-      bgp_vrf: AZCD21
-    sw02peer2:
-      remote_asn: 65190
-      remote_ipv4: 10.137.80.142
-      bgp_type: ebgp
-      bgp_vrf: AZCQ21 
-    sw02peer3:
-      remote_asn: 65190
-      remote_ipv4: 10.137.80.14
       bgp_type: ebgp
       bgp_vrf: AZCP21
     colo_vp02peer1:
