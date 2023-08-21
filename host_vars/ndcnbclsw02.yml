@@ -231,5 +231,5 @@ l3_bgp_neighbors:
 redis_connected:
   ethernet1/1.675:
     vrf: AVIATRIX-UNDERLAY
-  ethernet1/3.675:
+  ethernet1/2.675:
     vrf: AVIATRIX-UNDERLAY
