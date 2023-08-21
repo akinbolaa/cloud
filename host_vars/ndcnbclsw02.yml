@@ -181,7 +181,7 @@ l3_bgp_neighbors:
   vp04_peer2:
     bgp_type: ebgp
     remote_asn: 65189
-    remote_bgp_peer_ipv4: 10.137.82.122
+    remote_bgp_peer_ipv4: 10.137.80.122
     bgp_vrf: AVIATRIX-UNDERLAY
   vp02_peer1:
     bgp_type: ebgp
