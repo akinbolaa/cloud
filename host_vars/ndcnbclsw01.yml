@@ -40,7 +40,7 @@ vlan_interfaces:
     vrf: AZCP21
   Po1_1675:
     vlan_id: 1675
-    vlan_ipv4: 10.137.80.109/30
+    vlan_ipv4: 10.137.80.241/30
     vlan_description: "ibgp vlan for vrf AVIATRIX-UNDERLAY"
     vrf: AVIATRIX-UNDERLAY
 vpc_interfaces:

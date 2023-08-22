@@ -39,10 +39,10 @@
       description: "connection to ndcnbclvp01 Te0/0/5"
       lacp: present
     T0/0/3:
-      description: "connection to ndcnbclsw02 E1/47"
+      description: "connection to ndcnbclsw02 E1/13"
       lacp: absent
     Te0/0/2:
-      description: "connection to ndcnbclsw01 E1/47"
+      description: "connection to ndcnbclsw02 E1/14"
       lacp: absent
     Te0/0/11:
       description: "connection to ntdznbclvp02 Te0/0/11"
@@ -69,32 +69,32 @@
       dot1q: 675
       ipv4_add: 10.137.82.85
       vrf : AZCD21
-      description: " L3 connnection to nacnbclsw02 Po2.675"
+      description: " L3 connnection to ndcnbclsw02 Po2.675"
     Po2.676:
       dot1q: 676
       ipv4_add: 10.137.82.149
       vrf : AZCQ21
-      description: " L3 connnection to nacnbclsw02 Po2.676"
+      description: " L3 connnection to ndcnbclsw02 Po2.676"
     Po2.677:
       dot1q: 677
       ipv4_add: 10.137.82.21
       vrf : AZCP21
-      description: " L3 connnection to nacnbclsw02 Po2.677"
+      description: " L3 connnection to ndcnbclsw02 Po2.677"
     Po1.675:
       dot1q: 675
       ipv4_add: 10.137.80.90
       vrf : AZCD21
-      description: " L3 connnection to nacnbclvp01 Po1.675"
+      description: " L3 connnection to ndcnbclvp01 Po1.675"
     Po1.676:
       dot1q: 676
       ipv4_add: 10.137.80.154
       vrf : AZCQ21
-      description: " L3 connnection to nacnbclvp01 Po1.676"
+      description: " L3 connnection to ndcnbclvp01 Po1.676"
     Po1.677:
       dot1q: 677
       ipv4_add: 10.137.80.26
       vrf : AZCP21
-      description: " L3 connnection to nacnbclvp01 Po1.677"
+      description: " L3 connnection to ndcnbclvp01 Po1.677"
     Te0/0/11.675:
       dot1q: 675
       ipv4_add: 10.137.64.213
