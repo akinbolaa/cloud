@@ -38,10 +38,10 @@
     Te0/0/5:
       description: "connection to ndcnbclvp01 Te0/0/5"
       lacp: present
-    T0/0/3:
+    T0/0/0:
       description: "connection to ndcnbclsw02 E1/13"
       lacp: absent
-    Te0/0/2:
+    Te0/0/1:
       description: "connection to ndcnbclsw02 E1/14"
       lacp: absent
     Te0/0/11:

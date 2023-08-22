@@ -35,7 +35,7 @@ description {{ po_int_value.description }}
 {# create l3 interfaces #}
 {% for l3_int_name, l3_int_value in l3_interfaces.items() %}
 interface {{ l3_int_name }}
-{% if l3_int_value.lacp == "present" %} channel-group 1
+{% if l3_int_value.lacp == "present" %} channel-group 1 mode active
 {% endif %}
 no shut
 description {{ l3_int_value.description }}

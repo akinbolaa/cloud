@@ -44,10 +44,10 @@
     Te0/0/1:
       description: "connection to nacnbclsw01 E1/14"  
       lacp: present
-    Te0/0/2:
+    Te0/0/11:
       description: "connection to ntdznbclvp01 Te0/0/11"
       lacp: absent
-    Te0/0/3:
+    Te0/0/10:
       description: "connection to ncdzbclvp01 Te0/0/10"
       lacp: absent
 # define loopback interface 
