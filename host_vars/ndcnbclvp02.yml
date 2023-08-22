@@ -1,7 +1,7 @@
 ---
   hostname: ndcnbclvp02
-  loopback0: 10.137.82.28
-  local_bgp_asn: 65188
+  loopback0: 10.137.84.28
+  local_bgp_asn: 65206
 # define vrfs
   vrf_definition:
     vrf_azcd21:
