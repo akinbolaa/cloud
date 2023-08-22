@@ -54,30 +54,30 @@
   loopback_interfaces:
     loop675:
       loop_vrf: AZCD21
-      loop_ipv4: 10.137.82.11
+      loop_ipv4: 10.137.84.11
       loop_description: "vrf azcp21 loopback interface"
     loop676:
       loop_vrf: AZCQ21
-      loop_ipv4: 10.137.82.12
+      loop_ipv4: 10.137.84.12
       loop_description: "vrf azcp21 loopback interface"
     loop677:
       loop_vrf: AZCP21
-      loop_ipv4: 10.137.82.10
+      loop_ipv4: 10.137.84.10
       loop_description: "vrf azcp21 loopback interface"
   layer3_sub_int:
     Po2.675:
       dot1q: 675
-      ipv4_add: 10.137.82.85
+      ipv4_add: 10.137.80.85
       vrf : AZCD21
       description: " L3 connnection to ndcnbclsw02 Po2.675"
     Po2.676:
       dot1q: 676
-      ipv4_add: 10.137.82.149
+      ipv4_add: 10.137.80.149
       vrf : AZCQ21
       description: " L3 connnection to ndcnbclsw02 Po2.676"
     Po2.677:
       dot1q: 677
-      ipv4_add: 10.137.82.21
+      ipv4_add: 10.137.80.21
       vrf : AZCP21
       description: " L3 connnection to ndcnbclsw02 Po2.677"
     Po1.675:
