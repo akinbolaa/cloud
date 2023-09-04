@@ -225,7 +225,7 @@ l3_bgp_neighbors:
     bgp_type: ebgp
     remote_asn: 65188
     remote_bgp_peer_ipv4: 10.137.64.21
-    bgp_vrf: AZCD21
+    bgp_vrf: AZCP21
   vp02_peer2:
     bgp_type: ebgp
     remote_asn: 65188
@@ -257,11 +257,6 @@ l3_bgp_neighbors:
     remote_bgp_peer_ipv4: 10.137.66.162
     bgp_vrf: AZCQ21 
   avi_qdl_peer3:
-    bgp_type: ebgp
-    remote_asn: 64521
-    remote_bgp_peer_ipv4: 10.137.66.170 
-    bgp_vrf: AZCP21
-  avi_qdl_peer4:
     bgp_type: ebgp
     remote_asn: 64524
     remote_bgp_peer_ipv4: 10.137.66.178

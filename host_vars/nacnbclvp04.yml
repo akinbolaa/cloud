@@ -2,7 +2,7 @@
 hostname: NACNBCLSVP03
 local_bgp_asn: 64854
 azure_bgp_asn: 10000
-colo_loopback0: 10.137.68.29
+colo_loopback0: 10.137.68.30
 #configure loopback for each vrf
 loopback_interfaces:
   loopback675:
