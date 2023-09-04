@@ -5,12 +5,10 @@ vrf definition AZCP21
  address-family ipv4
  exit-address-family
 #}
-{#
-vrf definition AZCQ21
+vrf definition AVIATRIX-UNDERLAY-QDL
  rd {{ local_bgp_asn }}:676
  address-family ipv4
  exit-address-family
-#}
 vrf definition AVIATRIX-UNDERLAY
  rd {{ local_bgp_asn }}:675
  address-family ipv4
@@ -75,20 +73,18 @@ address-family ipv4 vrf AZCP21
 {% endfor %}
 #}
 !
-{#
-address-family ipv4 vrf AZCQ21
+address-family ipv4 vrf AVIATRIX-UNDERLAY-QDL
 {% for loop_name, loop_intf in loopback_interfaces.items() %}
-{% if loop_intf.loop_vrf == "AZCQ21" %}
+{% if loop_intf.loop_vrf == "AVIATRIX-UNDERLAY-QDL" %}
   network {{ loop_intf.loop_ipv4 }} mask 255.255.255.255
 {% endif %}
 {% endfor %}
 {% for bgp_name, bgp_data in router_bgp.items() %}
-{% if bgp_data.vrf == "AZCQ21" %}
+{% if bgp_data.vrf == "AVIATRIX-UNDERLAY-QDL" %}
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} remote-as {{ bgp_data.remote_bgp_asn }}
   neighbor {{ bgp_data.remote_bgp_ipv4_address }} activate
 {% endif %}
 {% endfor %}
-#}
 !
 address-family ipv4 vrf AVIATRIX-UNDERLAY
 {% for loop_name, loop_intf in loopback_interfaces.items() %}

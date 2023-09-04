@@ -4,6 +4,9 @@
   local_bgp_asn: 64805
 # define vrfs
   vrf_definition:
+    vrf_azcl21:
+      vrf_name: AZCL21
+      vrf_dot1q: 674
     vrf_azcd21:
       vrf_name: AZCD21
       vrf_dot1q: 675
@@ -13,6 +16,9 @@
     vrf_azcp21:
       vrf_name: AZCP21
       vrf_dot1q: 677
+    vrf_azcl21-fvrf:
+      vrf_name: AZCL21-FVRF
+      vrf_dot1q: 1674
     vrf_azcd21-fvrf:
       vrf_name: AZCD21-FVRF
       vrf_dot1q: 1675
@@ -32,6 +38,10 @@
       lacp: absent
 # define loopback interface 
   loopback_interfaces:
+    loop674:
+      loop_vrf: AZCL21
+      loop_ipv4: 10.137.84.43
+      loop_description: "vrf azcl21 loopback interface"
     loop675:
       loop_vrf: AZCD21
       loop_ipv4: 10.137.84.14
@@ -60,6 +70,11 @@
       ipv4_add: 10.137.80.2
       vrf : AZCP21-FVRF
       description: "connection to ndcnbclvp01 Te0/0/11.677"
+    Te0/0/10.674:
+      dot1q: 674
+      ipv4_add: 10.137.64.182
+      vrf : AZCL21-FVRF
+      description: "connection to nacnbclvp01 Te0/0/10.674"
     Te0/0/10.675:
       dot1q: 675
       ipv4_add: 10.137.64.218 
@@ -97,6 +112,13 @@
       dest: 10.137.80.1  
       desc: 
       fvrf: AZCP21-FVRF
+    tunnel1674:
+      vrf: AZCL21
+      ipv4: 10.137.65.6
+      src: 10.137.64.182
+      dest: 10.137.64.181
+      desc: 
+      fvrf: AZCL21-FVRF
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.64.102
@@ -149,7 +171,13 @@
       remote_ipv4: 10.137.64.37
       bgp_type: ebgp
       bgp_vrf: AZCP21
+    dc11_vp01peer4:
+      remote_asn: 65188
+      remote_ipv4: 10.137.65.5
+      bgp_type: ebgp
+      bgp_vrf: AZCL21
   ikev2_policy:
     fvrf1: AZCD21-FVRF
     fvrf2: AZCQ21-FVRF
     fvrf3: AZCP21-FVRF
+    fvrf4: AZCL21-FVRF

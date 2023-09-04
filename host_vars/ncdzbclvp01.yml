@@ -4,6 +4,9 @@
   local_bgp_asn: 64805
 # define vrfs
   vrf_definition:
+    vrf_azcl21:
+      vrf_name: AZCL21
+      vrf_dot1q: 674
     vrf_azcd21:
       vrf_name: AZCD21
       vrf_dot1q: 675
@@ -13,6 +16,9 @@
     vrf_azcp21:
       vrf_name: AZCP21
       vrf_dot1q: 677
+    vrf_azcl21-fvrf:
+      vrf_name: AZCL21-FVRF
+      vrf_dot1q: 1674
     vrf_azcd21-fvrf:
       vrf_name: AZCD21-FVRF
       vrf_dot1q: 1675
@@ -32,6 +38,10 @@
       lacp: absent
 # define loopback interface 
   loopback_interfaces:
+    loop674:
+      loop_vrf: AZCL21
+      loop_ipv4: 10.137.68.43
+      loop_description: "vrf azcl21 loopback interface"
     loop675:
       loop_vrf: AZCD21
       loop_ipv4: 10.137.68.14
@@ -45,6 +55,11 @@
       loop_ipv4: 10.137.68.13
       loop_description: "vrf azcp21 loopback interface"
   layer3_sub_int:
+    Te0/0/11.674:
+      dot1q: 674
+      ipv4_add: 10.137.64.178
+      vrf : AZCL21-FVRF
+      description: "connection to nacnbclvp01 Te0/0/11.675"
     Te0/0/11.675:
       dot1q: 675
       ipv4_add: 10.137.64.210
@@ -76,6 +91,13 @@
       vrf : AZCP21-FVRF
       description: "connection to ndcnbclvp01 Te0/0/10.677"
   vti_tunnel_interfaces:
+    tunnel674:
+      vrf: AZCL21
+      ipv4: 10.137.65.2
+      src: 10.137.64.178
+      dest: 10.137.64.177
+      desc: 
+      fvrf: AZCL21-FVRF 
     tunnel675:
       vrf: AZCD21
       ipv4: 10.137.64.94
@@ -134,17 +156,22 @@
       remote_ipv4: 10.137.64.29
       bgp_type: ebgp
       bgp_vrf: AZCP21
-    ntd_vp01peer1:
+    dc11colo_vp01peer4:
+      remote_asn: 65188
+      remote_ipv4: 10.137.65.1
+      bgp_type: ebgp
+      bgp_vrf: AZCL21
+    ndc_vp01peer1:
       remote_asn: 65206
       remote_ipv4: 10.137.80.101
       bgp_type: ebgp
       bgp_vrf: AZCD21
-    ntd_vp01peer2:
+    ndc_vp01peer2:
       remote_asn: 65206
       remote_ipv4: 10.137.80.165
       bgp_type: ebgp
       bgp_vrf: AZCQ21 
-    ntd_vp01peer3:
+    ndc_vp01peer3:
       remote_asn: 65206
       remote_ipv4: 10.137.80.37
       bgp_type: ebgp
@@ -153,3 +180,4 @@
     fvrf1: AZCD21-FVRF
     fvrf2: AZCQ21-FVRF
     fvrf3: AZCP21-FVRF
+    fvrf4: AZCL21-FVRF

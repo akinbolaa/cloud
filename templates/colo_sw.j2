@@ -109,6 +109,12 @@ route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY permit 10
 {% endif %}
 {% endfor %}
 !
+route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY-QDL permit 10
+{% for redis_name, int_name in redis_connected.items() %}
+{% if int_name.vrf == "AVIATRIX-UNDERLAY-QDL" %} match interface {{ redis_name }}
+{% endif %}
+{% endfor %}
+!
 {# bgp definition #}
 router bgp {{ local_bgp_asn }}
   address-family ipv4 unicast
@@ -166,6 +172,24 @@ network {{ loop_data.loop_ipv4 }}
 {% endif %}
 {% endfor %}
 !
+vrf AZCL21
+address-family ipv4 unicast
+{# add network statement for loopback interfaces #}
+{% for loop_int, loop_data in loopback_interfaces.items() %}
+{% if loop_data.loop_vrf == "AZCL21" %}
+network {{ loop_data.loop_ipv4 }}
+{% endif %}
+{% endfor %}
+{% for bgp_vlaue, bgp_data in l3_bgp_neighbors.items() %}
+{% if bgp_data.bgp_vrf == "AZCL21" %}
+    neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
+    remote-as {{ bgp_data.remote_asn }}
+    address-family ipv4 unicast
+    {% if bgp_data.bgp_type == "ibgp" %} next-hop-self 
+{% endif %}
+{% endif %}
+{% endfor %}
+!
 vrf AVIATRIX-UNDERLAY
 address-family ipv4 unicast
 redistribute direct route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY
@@ -176,6 +200,24 @@ redistribute direct route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY
 {% endfor %}
 {% for bgp_vlaue, bgp_data in l3_bgp_neighbors.items() %}
 {% if bgp_data.bgp_vrf == "AVIATRIX-UNDERLAY" %}
+    neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
+    remote-as {{ bgp_data.remote_asn }}
+    address-family ipv4 unicast
+{% if bgp_data.bgp_type == "ibgp" %} next-hop-self
+{% endif %}  
+{% endif %}
+{% endfor %}
+!
+vrf AVIATRIX-UNDERLAY-QDL
+address-family ipv4 unicast
+redistribute direct route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY-QDL
+{# add network statement for loopback interfaces #}
+{% for loop_int, loop_data in loopback_interfaces.items() %}
+{% if loop_data.loop_vrf == "AVIATRIX-UNDERLAY-QDL" %} network {{ loop_data.loop_ipv4 }}
+{% endif %}
+{% endfor %}
+{% for bgp_vlaue, bgp_data in l3_bgp_neighbors.items() %}
+{% if bgp_data.bgp_vrf == "AVIATRIX-UNDERLAY-QDL" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
     address-family ipv4 unicast

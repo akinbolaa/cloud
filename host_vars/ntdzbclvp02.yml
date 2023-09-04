@@ -4,6 +4,9 @@
   local_bgp_asn: 64526
 # define vrfs
   vrf_definition:
+    vrf_azcl21:
+      vrf_name: AZCL21
+      vrf_dot1q: 674
     vrf_azcd21:
       vrf_name: AZCD21
       vrf_dot1q: 675
@@ -13,6 +16,9 @@
     vrf_azcp21:
       vrf_name: AZCP21
       vrf_dot1q: 677
+    vrf_azcl21-fvrf:
+      vrf_name: AZCL21-FVRF
+      vrf_dot1q: 1674
     vrf_azcd21-fvrf:
       vrf_name: AZCD21-FVRF
       vrf_dot1q: 1675
@@ -32,17 +38,21 @@
       lacp: absent
 # define loopback interface 
   loopback_interfaces:
+    loop674:
+      loop_vrf: AZCL21
+      loop_ipv4: 10.137.84.44
+      loop_description: "vrf azcl21 loopback interface"
     loop675:
       loop_vrf: AZCD21
-      loop_ipv4: 10.137.84.14
+      loop_ipv4: 10.137.84.17
       loop_description: "vrf azcp21 loopback interface"
     loop676:
       loop_vrf: AZCQ21
-      loop_ipv4: 10.137.84.15
+      loop_ipv4: 10.137.84.18
       loop_description: "vrf azcp21 loopback interface"
     loop677:
       loop_vrf: AZCP21
-      loop_ipv4: 10.137.84.13
+      loop_ipv4: 10.137.84.16
       loop_description: "vrf azcp21 loopback interface"
   layer3_sub_int:
     Te0/0/11.675:
@@ -60,21 +70,26 @@
       ipv4_add: 10.137.80.6
       vrf : AZCP21-FVRF
       description: "connection to ndcnbclvp02 Te0/0/11.677"
+    Te0/0/10.674:
+      dot1q: 674
+      ipv4_add: 10.137.65.22
+      vrf : AZCL21-FVRF
+      description: "connection to nacnbclvp02 Te0/0/10.674"
     Te0/0/10.675:
       dot1q: 675
       ipv4_add: 10.137.64.222 
       vrf : AZCD21-FVRF
-      description: "connection to ncdzbclvp02 Te0/0/10.675"
+      description: "connection to nacnbclvp02 Te0/0/10.675"
     Te0/0/10.676:
       dot1q: 676
       ipv4_add: 10.137.64.238
       vrf : AZCQ21-FVRF
-      description: "connection to ncdzbclvp02 Te0/0/10.676"
+      description: "connection to nacnbclvp02 Te0/0/10.676"
     Te0/0/10.677:
       dot1q: 677
       ipv4_add: 10.136.64.206
       vrf : AZCP21-FVRF
-      description: "connection to ncdzbclvp02 Te0/0/10.677"
+      description: "connection to nacnbclvp02 Te0/0/10.677"
   vti_tunnel_interfaces:
     tunnel675:
       vrf: AZCD21
@@ -97,6 +112,13 @@
       dest: 10.137.80.5
       desc: 
       fvrf: AZCP21-FVRF
+    tunnel1674:
+      vrf: AZCL21
+      ipv4: 10.137.65.14
+      src: 10.137.65.22
+      dest: 10.137.65.21
+      desc: 
+      fvrf: AZCD21-FVRF
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.64.106
@@ -149,7 +171,13 @@
       remote_ipv4: 10.137.64.41
       bgp_type: ebgp
       bgp_vrf: AZCP21
+    ntd_vp02peer4:
+      remote_asn: 65188
+      remote_ipv4: 10.137.65.13
+      bgp_type: ebgp
+      bgp_vrf: AZCL21
   ikev2_policy:
     fvrf1: AZCD21-FVRF
     fvrf2: AZCQ21-FVRF
     fvrf3: AZCP21-FVRF
+    fvrf4: AZCL21-FVRF

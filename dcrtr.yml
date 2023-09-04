@@ -1,12 +1,12 @@
 ---
 # cloud demarc routers vp03 and vp04 config generation
-  - hosts: nacnbclvp03:nacnbclvp04
+  - hosts: ncdzbclvp02:ncdzbclvp01:ntdzbclvp02:ntdzbclvp01
     connection: local
     tasks:
      - name: Generate config for cloud routers
        template:
-         src: "templates/cloud_rtr.j2"
-         dest: "configs/cloud_rtr/{{ inventory_hostname }}.cfg"
+         src: "templates/dc_rtr.j2"
+         dest: "configs/dc_rtr/{{ inventory_hostname }}.cfg"
 
 #    - name: Generate switch config template
 #      template:
