@@ -6,6 +6,10 @@ local_vpc_peer_ipv4: 10.137.80.254
 remote_vpc_peer_ipv4: 10.137.80.253
 loopback0: 10.137.84.26/32
 loopback_interfaces:
+  loop674:
+    loop_ipv4: 10.137.84.40/32
+    loop_description: " vrf AZCL21 loopback for testing"
+    loop_vrf: AZCL21
   loop675:
     loop_ipv4: 10.137.84.5/32
     loop_description: " vrf AZCD21 loopback for testing"
@@ -20,9 +24,18 @@ loopback_interfaces:
     loop_vrf: AZCP21
   loop175:
     loop_ipv4: 10.137.84.34/32
-    loop_description: " vrf AZCD21-OUT loopback for testing"
-    loop_vrf: AVIATRIX-UNDERLAY  
+    loop_description: " vrf AVIATRIX-UNDERLAY loopback for testing"
+    loop_vrf: AVIATRIX-UNDERLAY
+  loop176:
+    loop_ipv4: 10.137.84.34/32
+    loop_description: " vrf AVIATRIX-UNDERLAY-QDL loopback for testing"
+    loop_vrf: AVIATRIX-UNDERLAY-QDL
 vlan_interfaces:
+  po1_674:
+    vlan_id: 674
+    vlan_ipv4: 10.137.80.54/30
+    vlan_description: "ibgp for vrf AZCL21"
+    vrf: AZCL21
   Po1_675:
     vlan_id: 675
     vlan_ipv4: 10.137.80.126/30
@@ -41,8 +54,13 @@ vlan_interfaces:
   Po1_1675:
     vlan_id: 1675
     vlan_ipv4: 10.137.80.242/30
-    vlan_description: "ibgp vlan for vrf AZCD21-OUT"
+    vlan_description: "ibgp vlan for vrf AVIATRIX-UNDERLAY"
     vrf: AVIATRIX-UNDERLAY
+  po1_1676:
+    vlan_id: 1676
+    vlan_ipv4: 10.137.80.246/30
+    vlan_description: "ibgp for vrf AVIATRIX-UNDERLAY-QDL"
+    vrf: AVIATRIX-UNDERLAY-QDL
 vpc_interfaces:
   Ethernet1:
     vpc_int_id: 1/53
@@ -93,30 +111,30 @@ l3_interfaces:
   ethernet1/14:
     description: " l3 connection to NACNBLVP02"
   ethernet1/2:
-    description: " l3 connection to PRE-PROD AVI-WAN"
+    description: " l3 connection to PRE-PROD-QA-LAB AVI-WAN"
   ethernet1/6:
-    description: " l3 connection to PRE-PROD AVI-LAN"
+    description: " l3 connection to PRE-PROD-QA-LAB AVI-LAN"
 l3_sub_interfaces:
   Po10.675:
     l3_sub_int_vrf: AVIATRIX-UNDERLAY
     l3_sub_int_ipv4: 10.137.80.121/30
     l3_sub_int_dot1q: 675
     l3_sub_description: "L3 sub-interface connection to NDCNBLVP04 VRF AVIATRIX-UNDERLAY"
-  ethernet1/5.675:
-    l3_sub_int_vrf: AZCD21
-    l3_sub_int_ipv4: 10.137.82.101/30
-    l3_sub_int_dot1q: 675
-    l3_sub_description: "L3 sub-interface connection to AVI PROD LAN VRF AZCD21"
-  ethernet1/5.676:
-    l3_sub_int_vrf: AZCQ21
-    l3_sub_int_ipv4: 10.137.82.109/30
+  po10.676:
+    l3_sub_int_vrf: AVIATRIX-UNDERLAY-QDL
+    l3_sub_int_ipv4: 10.137.80.185/30
     l3_sub_int_dot1q: 676
-    l3_sub_description: "L3 sub-interface connection to AVI PROD LAN VRF AZCQ21"
+    l3_sub_description: "L3 sub-interface connection to NDCNBLVP04 VRF AVIATRIX-UNDERLAY-QDL"
   ethernet1/5.677:
     l3_sub_int_vrf: AZCP21
     l3_sub_int_ipv4: 10.137.82.117/30
     l3_sub_int_dot1q: 677
     l3_sub_description: "L3 sub-interface connection to AVI PROD LAN VRF AZCP21"
+  Po11.674:
+    l3_sub_int_vrf: AZCL21
+    l3_sub_int_ipv4: 10.137.80.49/30
+    l3_sub_int_dot1q: 674
+    l3_sub_description: "L3 sub-interface connection to NACNBCLVP02 VRF AZCL21"
   Po11.675:
     l3_sub_int_vrf: AZCD21
     l3_sub_int_ipv4: 10.137.80.86/30
@@ -138,10 +156,15 @@ l3_sub_interfaces:
     l3_sub_int_dot1q: 675
     l3_sub_description: "L3 sub-interface connection to AVI PROD WAN VRF AZCD21-OUT"
   ethernet1/2.675:
-    l3_sub_int_vrf: AVIATRIX-UNDERLAY
+    l3_sub_int_vrf: AVIATRIX-UNDERLAY-QDL
     l3_sub_int_ipv4: 10.137.82.157/30
     l3_sub_int_dot1q: 675
     l3_sub_description: "L3 sub-interface connection to AVI PREPROD WAN VRF AZCD21-OUT"
+  ethernet1/6.674:
+    l3_sub_int_vrf: AZCL21
+    l3_sub_int_ipv4: 10.137.82.177/30
+    l3_sub_int_dot1q: 674
+    l3_sub_description: "L3 sub-interface connection to AVI PREPROD LAN VRF AZCL21"
   ethernet1/6.675:
     l3_sub_int_vrf: AZCD21
     l3_sub_int_ipv4: 10.137.82.153/30
@@ -173,16 +196,31 @@ l3_bgp_neighbors:
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.125
     bgp_vrf: AZCD21
-  sw01_peer6:
+  sw01_peer4:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.241
     bgp_vrf: AVIATRIX-UNDERLAY
-  vp04_peer2:
+  sw01_peer5:
+    bgp_type: ibgp
+    remote_asn: 65190
+    remote_bgp_peer_ipv4: 10.137.80.245
+    bgp_vrf: AVIATRIX-UNDERLAY-QDL
+  sw01_peer6:
+    bgp_type: ibgp
+    remote_asn: 65190
+    remote_bgp_peer_ipv4: 10.137.80.53
+    bgp_vrf: AZCL21
+  vp04_peer1:
     bgp_type: ebgp
     remote_asn: 65189
     remote_bgp_peer_ipv4: 10.137.80.122
     bgp_vrf: AVIATRIX-UNDERLAY
+  vp04_peer2:
+    bgp_type: ebgp
+    remote_asn: 65189
+    remote_bgp_peer_ipv4: 10.137.80.186
+    bgp_vrf: AVIATRIX-UNDERLAY-QDL
   vp02_peer1:
     bgp_type: ebgp
     remote_asn: 65206
@@ -198,38 +236,33 @@ l3_bgp_neighbors:
     remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.149
     bgp_vrf: AZCQ21
-  av1prod_peer1:
+  vp02_peer4:
     bgp_type: ebgp
-    remote_asn: 64523
-    remote_bgp_peer_ipv4: 10.137.82.102
-    bgp_vrf: AZCD21
-  av1prod_peer2:
-    bgp_type: ebgp
-    remote_asn: 64522
-    remote_bgp_peer_ipv4: 10.137.82.110
-    bgp_vrf: AZCQ21 
+    remote_asn: 65206
+    remote_bgp_peer_ipv4: 10.137.80.50
+    bgp_vrf: AZCL21
   av1prod_peer3:
     bgp_type: ebgp
     remote_asn: 64521
     remote_bgp_peer_ipv4: 10.137.82.118
     bgp_vrf: AZCP21
-  avipre_prod_peer1:
+  avi_qdl_peer1:
     bgp_type: ebgp
     remote_asn: 64523
     remote_bgp_peer_ipv4: 10.137.82.154
     bgp_vrf: AZCD21
-  avipre_prod_peer2:
+  avi_qdl_peer2:
     bgp_type: ebgp
     remote_asn: 64522
     remote_bgp_peer_ipv4: 10.137.82.162
     bgp_vrf: AZCQ21 
-  avipre_prod_peer3:
+  avi_qdl_peer3:
     bgp_type: ebgp
-    remote_asn: 64521
-    remote_bgp_peer_ipv4: 10.137.82.170 
-    bgp_vrf: AZCP21
+    remote_asn: 64524
+    remote_bgp_peer_ipv4: 10.137.82.178
+    bgp_vrf: AZCL21
 redis_connected:
   ethernet1/1.675:
     vrf: AVIATRIX-UNDERLAY
   ethernet1/2.675:
-    vrf: AVIATRIX-UNDERLAY
+    vrf: AVIATRIX-UNDERLAY-QDL

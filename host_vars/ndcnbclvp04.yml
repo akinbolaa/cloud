@@ -9,6 +9,10 @@ loopback_interfaces:
     loop_ipv4: 10.137.84.21
     loop_vrf: AVIATRIX-UNDERLAY
     description: "AVIATRIX-UNDERLAY loopback interface"
+  loopback676:
+    loop_ipv4: 10.137.84.22
+    loop_vrf: AVIATRIX-UNDERLAY-QDL
+    description: "AVIATRIX-UNDERLAY loopback interface for preprod-QA-Lab"
 # portchannel setup
 int_port_channel:
   Po1:
@@ -68,14 +72,29 @@ sub_interfaces:
     vrf: AVIATRIX-UNDERLAY
     dot1q: 675
     ipv4_add: 10.137.80.122
+  Po2.676:
+    description: "connection to NdCNBCLSW01 Po2 VRF AVIATRIX-UNDERLAY-QDL"
+    vrf: AVIATRIX-UNDERLAY-QDL
+    dot1q: 676
+    ipv4_add: 10.137.80.186
 router_bgp:
   azure_peer1:
     remote_bgp_ipv4_address: 1.2.3.1
     description: "BGP to Azure Expressroute VRF AZCP21"
     remote_bgp_asn: "<AZURE BGP ASN>"
-    vrf: AZCP21
-  sw02_peer2:
+    vrf: AVIATRIX-UNDERLAY
+  azure_peer2:
+    remote_bgp_ipv4_address: 1.2.3.1
+    description: "BGP to Azure Expressroute VRF AZCP21"
+    remote_bgp_asn: "<AZURE BGP ASN>"
+    vrf: AVIATRIX-UNDERLAY-QDL
+  sw02_peer1:
     remote_bgp_ipv4_address: 10.137.80.121
     description: "BGP to Colo Switch NDCNBCLSW02 VRF AZCD21"
     remote_bgp_asn: 65190
     vrf: AVIATRIX-UNDERLAY
+  sw02_peer2:
+    remote_bgp_ipv4_address: 10.137.80.185
+    description: "BGP to Colo Switch NDCNBCLSW02 VRF AZCD21"
+    remote_bgp_asn: 65190
+    vrf: AVIATRIX-UNDERLAY-QDL
