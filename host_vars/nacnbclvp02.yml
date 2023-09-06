@@ -118,7 +118,7 @@
     Te0/0/11.674:
       dot1q: 674
       ipv4_add: 10.137.65.17
-      vrf : AZCDL1-FVRF
+      vrf : AZCL21-FVRF
       description: " L3 connnection to ncdzbclvp02 Te0/0/11.674"
     Te0/0/11.675:
       dot1q: 675

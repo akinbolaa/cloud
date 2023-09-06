@@ -55,6 +55,11 @@
       loop_ipv4: 10.137.84.16
       loop_description: "vrf azcp21 loopback interface"
   layer3_sub_int:
+    Te0/0/11.674:
+      dot1q: 674
+      ipv4_add: 10.137.81.18
+      vrf : AZCL21-FVRF
+      description: "connection to ndcnbclvp02 Te0/0/11.674"
     Te0/0/11.675:
       dot1q: 675
       ipv4_add: 10.137.80.214
@@ -91,6 +96,13 @@
       vrf : AZCP21-FVRF
       description: "connection to nacnbclvp02 Te0/0/10.677"
   vti_tunnel_interfaces:
+    tunnel674:
+      vrf: AZCl21
+      ipv4: 10.137.81.10
+      src: 10.137.81.18
+      dest: 10.137.81.17
+      desc: 
+      fvrf: AZCL21-FVRF 
     tunnel675:
       vrf: AZCD21
       ipv4: 10.137.80.98
@@ -156,22 +168,27 @@
       remote_ipv4: 10.137.80.33
       bgp_type: ebgp
       bgp_vrf: AZCP21
-    ntd_vp02peer1:
+    dc11_colo_vp02peer4:
+      remote_asn: 65206
+      remote_ipv4: 10.137.81.9
+      bgp_type: ebgp
+      bgp_vrf: AZCL21
+    nac_vp02peer1:
       remote_asn: 65188
       remote_ipv4: 10.137.64.105
       bgp_type: ebgp
       bgp_vrf: AZCD21
-    ntd_vp02peer2:
+    nac_vp02peer2:
       remote_asn: 65188
       remote_ipv4: 10.137.64.169
       bgp_type: ebgp
       bgp_vrf: AZCQ21 
-    ntd_vp02peer3:
+    nac_vp02peer3:
       remote_asn: 65188
       remote_ipv4: 10.137.64.41
       bgp_type: ebgp
       bgp_vrf: AZCP21
-    ntd_vp02peer4:
+    nac_vp02peer4:
       remote_asn: 65188
       remote_ipv4: 10.137.65.13
       bgp_type: ebgp

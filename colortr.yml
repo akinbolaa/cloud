@@ -1,6 +1,6 @@
 ---
 # cloud demarc routers vp03 and vp04 config generation
-  - hosts: nacnbclvp02:nacnbclvp01
+  - hosts: ndcnbclvp02:ndcnbclvp01
     connection: local
     tasks:
      - name: Generate config for cloud routers

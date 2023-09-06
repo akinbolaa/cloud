@@ -75,6 +75,11 @@
       ipv4_add: 10.137.64.2
       vrf : AZCP21-FVRF
       description: "connection to nacnbclvp01 Te0/0/11.677"
+    Te0/0/10.674:
+      dot1q: 674
+      ipv4_add: 10.137.80.182
+      vrf : AZCL21-FVRF
+      description: "connection to ndcnbclvp01 Te0/0/10.675"
     Te0/0/10.675:
       dot1q: 675
       ipv4_add: 10.137.80.218 
@@ -119,6 +124,13 @@
       dest: 10.137.64.1  
       desc: 
       fvrf: AZCP21-FVRF
+    tunnel1674:
+      vrf: AZCL21
+      ipv4: 10.137.81.6
+      src: 10.137.80.182
+      dest: 10.137.80.181
+      desc: 
+      fvrf: AZCL21-FVRF
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.80.102
@@ -176,6 +188,11 @@
       remote_ipv4: 10.137.80.37
       bgp_type: ebgp
       bgp_vrf: AZCP21
+    ndc_vp01peer4:
+      remote_asn: 65206
+      remote_ipv4: 10.137.81.5
+      bgp_type: ebgp
+      bgp_vrf: AZCL21
   ikev2_policy:
     fvrf1: AZCD21-FVRF
     fvrf2: AZCQ21-FVRF
