@@ -156,7 +156,7 @@ l3_sub_interfaces:
     l3_sub_int_dot1q: 675
     l3_sub_description: "L3 sub-interface connection to AVI PROD WAN VRF AVIATRIX-UNDERLAY"
   ethernet1/2.675:
-    l3_sub_int_vrf: AVIATRIX-UNDERLAY
+    l3_sub_int_vrf: AVIATRIX-UNDERLAY-QDL
     l3_sub_int_ipv4: 10.137.82.57/30
     l3_sub_int_dot1q: 675
     l3_sub_description: "L3 sub-interface connection to AVI PREPROD WAN VRF AVIATRIX-UNDERLAY"

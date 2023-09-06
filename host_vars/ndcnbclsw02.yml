@@ -23,11 +23,11 @@ loopback_interfaces:
     loop_description: " vrf AZCP21 loopback for testing"
     loop_vrf: AZCP21
   loop175:
-    loop_ipv4: 10.137.84.34/32
+    loop_ipv4: 10.137.84.36/32
     loop_description: " vrf AVIATRIX-UNDERLAY loopback for testing"
     loop_vrf: AVIATRIX-UNDERLAY
   loop176:
-    loop_ipv4: 10.137.84.34/32
+    loop_ipv4: 10.137.84.37/32
     loop_description: " vrf AVIATRIX-UNDERLAY-QDL loopback for testing"
     loop_vrf: AVIATRIX-UNDERLAY-QDL
 vlan_interfaces:
