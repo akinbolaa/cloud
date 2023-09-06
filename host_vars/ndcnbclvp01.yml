@@ -290,7 +290,7 @@
       bgp_vrf: AZCP21
     ntd_vp01peer4:
       remote_asn: 64526
-      remote_ipv4: 10.137.81.1
+      remote_ipv4: 10.137.81.2
       bgp_type: ebgp
       bgp_vrf: AZCL21
   ikev2_policy:
