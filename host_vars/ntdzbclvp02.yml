@@ -130,7 +130,7 @@
       src: 10.137.65.22
       dest: 10.137.65.21
       desc: 
-      fvrf: AZCD21-FVRF
+      fvrf: AZCL21-FVRF
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.64.106
