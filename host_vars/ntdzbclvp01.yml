@@ -99,8 +99,8 @@
     tunnel674:
       vrf: AZCL21
       ipv4: 10.137.81.6
-      src: 10.137.80.182
-      dest: 10.137.80.181
+      src: 10.137.80.178
+      dest: 10.137.80.177
       desc: 
       fvrf: AZCL21-FVRF 
     tunnel675:

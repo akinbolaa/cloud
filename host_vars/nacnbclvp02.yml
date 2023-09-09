@@ -270,7 +270,7 @@
       bgp_vrf: AZCP21
     ncd_vp02peer4:
       remote_asn: 64805
-      remote_ipv4: 10.137.66.10
+      remote_ipv4: 10.137.64.10
       bgp_type: ebgp
       bgp_vrf: AZCL21
     ntd_vp02peer1:
