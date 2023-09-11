@@ -222,7 +222,7 @@ l3_bgp_neighbors:
     remote_asn: 64854
     remote_bgp_peer_ipv4: 10.137.64.186
     bgp_vrf: AVIATRIX-UNDERLAY-QDL
-    desc: "bgp peer to nacnbclvp04 vrf aviatrix-underlay-qdl"
+    desc: "ebgp peer to nacnbclvp04 vrf aviatrix-underlay-qdl"
   vp04_peer1:
     bgp_type: ebgp
     remote_asn: 64854
