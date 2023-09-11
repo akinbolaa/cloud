@@ -161,56 +161,56 @@
       ipv4: 10.137.65.9
       src: 10.137.65.17
       dest: 10.137.65.18
-      desc: 
+      desc: "vti tunnel to ncdzbclvp02 tunnel 674"
       fvrf: AZCL21-FVRF 
     tunnel675:
       vrf: AZCD21
       ipv4: 10.137.64.97
       src: 10.137.64.213
       dest: 10.137.64.214
-      desc: 
+      desc: "vti tunnel to ncdzbclvp02 tunnel 675"
       fvrf: AZCD21-FVRF 
     tunnel676:
       vrf: AZCQ21
       ipv4: 10.137.64.161
       src: 10.137.64.229
       dest: 10.137.64.230
-      desc: 
+      desc: "vti tunnel to ncdzbclvp02 tunnel 676"
       fvrf: AZCQ21-FVRF
     tunnel677:
       vrf: AZCP21
       ipv4: 10.137.64.33  
       src: 10.137.64.5
       dest: 10.137.64.6
-      desc: 
+      desc: "vti tunnel to ncdzbclvp02 tunnel 677"
       fvrf: AZCP21-FVRF
     tunnel1674:
       vrf: AZCL21
       ipv4: 10.137.65.13
       src: 10.137.65.21
       dest: 10.137.65.22
-      desc: 
+      desc: "vti tunnel to ntdzbclvp02 tunnel 1674"
       fvrf: AZCL21-FVRF 
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.64.105
       src: 10.137.64.221
       dest: 10.137.64.222
-      desc: 
+      desc: "vti tunnel to ntdzbclvp02 tunnel 1675"
       fvrf: AZCD21-FVRF
     tunnel1676:
       vrf: AZCQ21
       ipv4: 10.137.64.169 
       src: 10.137.64.237
       dest: 10.137.64.238
-      desc: 
+      desc: "vti tunnel to ntdzbclvp02 tunnel 1676"
       fvrf: AZCQ21-FVRF
     tunnel1677:
       vrf: AZCP21
       ipv4: 10.137.64.41
       src: 10.137.64.205
       dest: 10.137.64.206
-      desc: 
+      desc: "vti tunnel to ntdzbclvp02 tunnel 1677"
       fvrf: AZCP21-FVRF
   bgp_neighbors:
     sw02peer1:
@@ -218,81 +218,97 @@
       remote_ipv4: 10.137.64.86
       bgp_type: ebgp
       bgp_vrf: AZCD21
+      desc: "bgp peer to nacnbclsw02 vrf azcd21"
     sw02peer2:
       remote_asn: 64919
       remote_ipv4: 10.137.64.150
       bgp_type: ebgp
-      bgp_vrf: AZCQ21 
+      bgp_vrf: AZCQ21
+      desc: "bgp peer to nacnbclsw02 vrf azcq21"
     sw02peer3:
       remote_asn: 64919
       remote_ipv4: 10.137.64.22
       bgp_type: ebgp
       bgp_vrf: AZCP21
+      desc: "bgp peer to nacnbclsw02 vrf azcp21"
     sw02peer4:
       remote_asn: 64919
       remote_ipv4: 10.137.64.49
       bgp_type: ebgp
       bgp_vrf: AZCL21
+      desc: "bgp peer to nacnbclsw02 vrf azcl21"
     colo_vp01peer1:
       remote_asn: 65188
       remote_ipv4: 10.137.64.89
       bgp_type: ibgp
       bgp_vrf: AZCD21
+      desc: "bgp peer to nacnbclvp02 vrf azcd21"
     colo_vp01peer2:
       remote_asn: 65188
       remote_ipv4: 10.137.64.153
       bgp_type: ibgp
-      bgp_vrf: AZCQ21 
+      bgp_vrf: AZCQ21
+      desc: "bgp peer to nacnbclvp02 vrf azcq21"
     colo_vp01peer3:
       remote_asn: 65188
       remote_ipv4: 10.137.64.25
       bgp_type: ibgp
       bgp_vrf: AZCP21
+      desc: "bgp peer to nacnbclvp02 vrf azcp21"
     colo_vp01peer4:
       remote_asn: 65188
       remote_ipv4: 10.137.64.113
       bgp_type: ibgp
       bgp_vrf: AZCL21
+      desc: "bgp peer to nacnbclvp02 vrf azcl21"
     ncd_vp02peer1:
       remote_asn: 64805
       remote_ipv4: 10.137.64.98
       bgp_type: ebgp
       bgp_vrf: AZCD21
+      desc: "bgp peer to ncdzbclvp01 vrf azcd21"
     ncd_vp02peer2:
       remote_asn: 64805
       remote_ipv4: 10.137.64.162
       bgp_type: ebgp
-      bgp_vrf: AZCQ21 
+      bgp_vrf: AZCQ21
+      desc: "bgp peer to ncdzbclvp02 vrf azcq21"
     ncd_vp02peer3:
       remote_asn: 64805
       remote_ipv4: 10.137.64.34
       bgp_type: ebgp
       bgp_vrf: AZCP21
+      desc: "bgp peer to ncdzbclvp02 vrf azcp21"
     ncd_vp02peer4:
       remote_asn: 64805
       remote_ipv4: 10.137.64.10
       bgp_type: ebgp
       bgp_vrf: AZCL21
+      desc: "bgp peer to ncdzbclvp02 vrf azcl21"
     ntd_vp02peer1:
       remote_asn: 64526
       remote_ipv4: 10.137.64.106
       bgp_type: ebgp
       bgp_vrf: AZCD21
+      desc: "bgp peer to ntdzbclvp02 vrf azcd21"
     ntd_vp02peer2:
       remote_asn: 64526
       remote_ipv4: 10.137.64.170
       bgp_type: ebgp
-      bgp_vrf: AZCQ21 
+      bgp_vrf: AZCQ21
+      desc: "bgp peer to ntdzbclvp02 vrf azcq21"
     ntd_vp02peer3:
       remote_asn: 64526
       remote_ipv4: 10.137.64.42
       bgp_type: ebgp
       bgp_vrf: AZCP21
+      desc: "bgp peer to ntdzbclvp02 vrf azcp21"
     ntd_vp02peer4:
       remote_asn: 64526
       remote_ipv4: 10.137.65.14
       bgp_type: ebgp
       bgp_vrf: AZCL21
+      desc: "bgp peer to ntdzbclvp02 vrf azcl21"
   ikev2_policy:
       fvrf1: AZCD21-FVRF
       fvrf2: AZCQ21-FVRF

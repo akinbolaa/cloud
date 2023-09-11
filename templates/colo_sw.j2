@@ -130,6 +130,7 @@ network {{ loop_data.loop_ipv4 }}
 {% if bgp_data.bgp_vrf == "AZCP21" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
     {% if bgp_data.bgp_type == "ibgp" %} next-hop-self 
 {% endif %}
@@ -148,6 +149,7 @@ network {{ loop_data.loop_ipv4 }}
 {% if bgp_data.bgp_vrf == "AZCD21" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
     {% if bgp_data.bgp_type == "ibgp" %} next-hop-self 
 {% endif %}
@@ -166,6 +168,7 @@ network {{ loop_data.loop_ipv4 }}
 {% if bgp_data.bgp_vrf == "AZCQ21" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
     {% if bgp_data.bgp_type == "ibgp" %} next-hop-self 
 {% endif %}
@@ -184,6 +187,7 @@ network {{ loop_data.loop_ipv4 }}
 {% if bgp_data.bgp_vrf == "AZCL21" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
     {% if bgp_data.bgp_type == "ibgp" %} next-hop-self 
 {% endif %}
@@ -202,6 +206,7 @@ redistribute direct route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY
 {% if bgp_data.bgp_vrf == "AVIATRIX-UNDERLAY" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
 {% if bgp_data.bgp_type == "ibgp" %} next-hop-self
 {% endif %}  
@@ -220,6 +225,7 @@ redistribute direct route-map REDIS_CONNECTED-VRF-AVIATRIX-UNDERLAY-QDL
 {% if bgp_data.bgp_vrf == "AVIATRIX-UNDERLAY-QDL" %}
     neighbor {{ bgp_data.remote_bgp_peer_ipv4 }}
     remote-as {{ bgp_data.remote_asn }}
+    description {{bgp_data.desc}}
     address-family ipv4 unicast
 {% if bgp_data.bgp_type == "ibgp" %} next-hop-self
 {% endif %}  

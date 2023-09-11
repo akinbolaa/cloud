@@ -170,7 +170,7 @@
       bgp_vrf: AZCP21
     da3colo_vp01peer4:
       remote_asn: 65206
-      remote_ipv4: 10.137.81.5
+      remote_ipv4: 10.137.81.1
       bgp_type: ebgp
       bgp_vrf: AZCL21
     dc11_vp01peer1:
