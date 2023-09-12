@@ -161,56 +161,56 @@
       ipv4: 10.137.81.9
       src: 10.137.81.17
       dest: 10.137.81.18
-      desc: "vti tunnel to ntdzbclvp02 vrf AZCL21"
+      desc: "vti tunnel to ntdzbclvp02 tunnel 674 vrf AZCL21"
       fvrf: AZCL21-FVRF 
     tunnel675:
       vrf: AZCD21
       ipv4: 10.137.80.97
       src: 10.137.80.213
       dest: 10.137.80.214
-      desc: "vti tunnel to ntdzbclvp02 vrf AZCD21"
+      desc: "vti tunnel to ntdzbclvp02 tunnel 675 vrf AZCD21"
       fvrf: AZCD21-FVRF 
     tunnel676:
       vrf: AZCQ21
       ipv4: 10.137.80.161
       src: 10.137.80.229
       dest: 10.137.80.230
-      desc: "vti tunnel to ntdzbclvp02 vrf AZCQ21"
+      desc: "vti tunnel to ntdzbclvp02 tunnel 676 vrf AZCQ21"
       fvrf: AZCQ21-FVRF
     tunnel677:
       vrf: AZCP21
       ipv4: 10.137.80.33  
       src: 10.137.80.5
       dest: 10.137.80.6
-      desc: "vti tunnel to ntdzbclvp02 vrf AZCP21"
+      desc: "vti tunnel to ntdzbclvp02 tunnel 677 vrf AZCP21"
       fvrf: AZCP21-FVRF
     tunnel1674:
       vrf: AZCL21
       ipv4: 10.137.81.13
       src: 10.137.81.21
       dest: 10.137.81.22
-      desc: "vti tunnel to ncdzbclvp02 vrf AZCL21"
+      desc: "vti tunnel to ncdzbclvp02 tunnel 1674 vrf AZCL21"
       fvrf: AZCL21-FVRF 
     tunnel1675:
       vrf: AZCD21
       ipv4: 10.137.80.105
       src: 10.137.80.221
       dest: 10.137.80.222
-      desc: "vti tunnel to ncdzbclvp02 vrf AZCD21"
+      desc: "vti tunnel to ncdzbclvp02 tunnel 1675 vrf AZCD21"
       fvrf: AZCD21-FVRF
     tunnel1676:
       vrf: AZCQ21
       ipv4: 10.137.80.169 
       src: 10.137.80.237
       dest: 10.137.80.238
-      desc: "vti tunnel to ncdzbclvp02 vrf AZCQ21"
+      desc: "vti tunnel to ncdzbclvp02 tunnel 1676 vrf AZCQ21"
       fvrf: AZCQ21-FVRF
     tunnel1677:
       vrf: AZCP21
       ipv4: 10.137.80.41
       src: 10.137.80.205
       dest: 10.137.80.206
-      desc: "vti tunnel to ncdzbclvp02 vrf AZCP21"
+      desc: "vti tunnel to ncdzbclvp02 tunnel 1677 vrf AZCP21"
       fvrf: AZCP21-FVRF
   bgp_neighbors:
     sw02peer1:

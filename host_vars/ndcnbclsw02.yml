@@ -185,82 +185,98 @@ l3_bgp_neighbors:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.61
-    bgp_vrf: AZCP21  
+    bgp_vrf: AZCP21
+    desc: "ibgp peer to ndcnbclsw01 vrf azcp21"
   sw01_peer2:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.189
     bgp_vrf: AZCQ21
+    desc: "ibgp peer to ndcnbclsw01 vrf azcq21"
   sw01_peer3:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.125
     bgp_vrf: AZCD21
+    desc: "ibgp peer to ndcnbclsw01 vrf azcd21"
   sw01_peer4:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.241
     bgp_vrf: AVIATRIX-UNDERLAY
+    desc: "ibgp peer to ndcnbclsw01 vrf AVIATRIX-UNDERLAY"
   sw01_peer5:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.245
     bgp_vrf: AVIATRIX-UNDERLAY-QDL
+    desc: "ibgp peer to ndcnbclsw01 vrf AVIATRIX-UNDERLAY-QDL"
   sw01_peer6:
     bgp_type: ibgp
     remote_asn: 65190
     remote_bgp_peer_ipv4: 10.137.80.53
     bgp_vrf: AZCL21
+    desc: "ibgp peer to ndcnbclsw01 vrf azcl21"
   vp04_peer1:
     bgp_type: ebgp
     remote_asn: 65189
     remote_bgp_peer_ipv4: 10.137.80.122
     bgp_vrf: AVIATRIX-UNDERLAY
+    desc: "ebgp peer to ndcnbclvp04 vrf aviatrix-underlay"
   vp04_peer2:
     bgp_type: ebgp
     remote_asn: 65189
     remote_bgp_peer_ipv4: 10.137.80.186
     bgp_vrf: AVIATRIX-UNDERLAY-QDL
+    desc: "ebgp peer to ndcnbclvp04 vrf aviatrix-underlay-qdl"
   vp02_peer1:
     bgp_type: ebgp
     remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.21
-    bgp_vrf: AZCP21 
+    bgp_vrf: AZCP21
+    desc: "ebgp peer to ndcnbclvp04 vrf azcp21"
   vp02_peer2:
     bgp_type: ebgp
     remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.85
-    bgp_vrf: AZCD21 
+    bgp_vrf: AZCD21
+    desc: "ebgp peer to ndcnbclvp04 vrf azcd21"
   vp02_peer3:
     bgp_type: ebgp
     remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.149
     bgp_vrf: AZCQ21
+    desc: "ebgp peer to ndcnbclvp04 vrf azcq21"
   vp02_peer4:
     bgp_type: ebgp
     remote_asn: 65206
     remote_bgp_peer_ipv4: 10.137.80.50
     bgp_vrf: AZCL21
+    desc: "ebgp peer to ndcnbclvp04 vrf azcl21"
   av1prod_peer3:
     bgp_type: ebgp
     remote_asn: 64521
     remote_bgp_peer_ipv4: 10.137.82.118
     bgp_vrf: AZCP21
+    desc: "ebgp peer to aviatrix-prod vrf azcp21"
   avi_qdl_peer1:
     bgp_type: ebgp
     remote_asn: 64523
     remote_bgp_peer_ipv4: 10.137.82.154
     bgp_vrf: AZCD21
+    desc: "ebgp peer to aviatrix-qa-preprod-lab vrf azcd21"
   avi_qdl_peer2:
     bgp_type: ebgp
     remote_asn: 64522
     remote_bgp_peer_ipv4: 10.137.82.162
-    bgp_vrf: AZCQ21 
+    bgp_vrf: AZCQ21
+    desc: "ebgp peer to aviatrix-qa-preprod-lab vrf azcq21"
   avi_qdl_peer3:
     bgp_type: ebgp
     remote_asn: 64524
     remote_bgp_peer_ipv4: 10.137.82.178
     bgp_vrf: AZCL21
+    desc: "ebgp peer to aviatrix-qa-preprod-lab vrf azcl21"
 redis_connected:
   ethernet1/1.675:
     vrf: AVIATRIX-UNDERLAY
